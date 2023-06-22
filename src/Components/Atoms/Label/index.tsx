@@ -1,10 +1,15 @@
-export type LabelProps = {
+export type LabelAtomProps = {
   text: string;
+  htmlFor?: string;
   className?: string;
 };
 
-const Label = ({ text, className }: LabelProps) => {
-  return <label className={className ?? ""}>{text}</label>;
+const LabelAtom = ({ text, htmlFor, className }: LabelAtomProps) => {
+  return (
+    <label htmlFor={htmlFor ?? ""} className={className ?? ""}>
+      {text}
+    </label>
+  );
 };
 
-export default Label;
+export default LabelAtom;

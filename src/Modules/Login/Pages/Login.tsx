@@ -1,34 +1,55 @@
-import { LoginFormProps } from "../../../Components/Molecules/LoginForm";
-import LoginTemplate from "../../../Components/Templates/login";
+import LoginTemplate, {
+  LoginTemplateProps,
+} from "../../../Components/Templates/login";
 
 const LoginPage = () => {
-  const loginForm = {
-    button: {
-      onClick: () => {
-        try {
-          const data = "hola mundo";
-          console.log(data);
-        } catch (error) {
-          console.error(error);
-        }
+  const security: LoginTemplateProps = {
+    login: {
+      form: {
+        button: {
+          onClick: () => {
+            const data = "hola mundo";
+            console.log(data);
+          },
+          text: "Login",
+          type: "button",
+        },
+        user: {
+          input: {
+            type: "text",
+            name: "user",
+            id: "user",
+          },
+          label: {
+            text: "User",
+            htmlFor: "user",
+          },
+        },
+        password: {
+          input: {
+            type: "password",
+            name: "password",
+            id: "password",
+          },
+          label: {
+            text: "Password",
+            htmlFor: "password",
+          },
+        },
       },
-      text: "Login",
-      type: "submit",
+      password: {
+        recovery: {
+          text: "Recovery",
+          href: "/recovery",
+        },
+        reset: {
+          text: "Reset",
+          href: "/reset",
+        },
+      },
     },
-    userLabel: {
-      text: "Usuario",
-    },
-    userInput: {
-      type: "text",
-    },
-    passLabel: {
-      text: "Password",
-    },
-    passInput: {
-      type: "password",
-    },
-  } as LoginFormProps;
-  return <LoginTemplate loginForm={loginForm} />;
+  };
+  return <LoginTemplate login={security.login} />;
 };
 
 export default LoginPage;

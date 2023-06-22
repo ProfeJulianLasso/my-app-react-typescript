@@ -1,12 +1,13 @@
-import { LoginFormProps } from "../../Molecules/LoginForm";
-import Security from "../../Organisms/Security";
+import SecurityOrganism, {
+  SecurityOrganismProps,
+} from "../../Organisms/Security";
 
 export type LoginTemplateProps = {
-  loginForm: LoginFormProps;
+  login: SecurityOrganismProps;
 };
 
-const LoginTemplate = (props: LoginTemplateProps) => {
-  return <Security loginForm={props.loginForm} />;
+const LoginTemplate = ({ login }: LoginTemplateProps) => {
+  return <SecurityOrganism form={login.form} password={login.password} />;
 };
 
 export default LoginTemplate;

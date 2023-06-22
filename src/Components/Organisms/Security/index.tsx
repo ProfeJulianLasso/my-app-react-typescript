@@ -1,27 +1,32 @@
-import LoginForm, { LoginFormProps } from "../../Molecules/LoginForm";
+import LoginForm, { LoginFormMoleculeProps } from "../../Molecules/LoginForm";
+import PasswordRecoveryAndResetMolecule, {
+  PasswordRecoveryAndResetMoleculeProps,
+} from "../../Molecules/PasswordRecoveryAndReset";
 
-export type SecurityProps = {
-  loginForm: LoginFormProps;
+export type SecurityOrganismProps = {
+  form: LoginFormMoleculeProps;
+  password: PasswordRecoveryAndResetMoleculeProps;
 };
 
-const Security = (props: SecurityProps) => {
+const SecurityOrganism = ({ form, password }: SecurityOrganismProps) => {
   return (
     <div>
       <h1>Security</h1>
       <div>
         <LoginForm
-          userLabel={props.loginForm.userLabel}
-          userInput={props.loginForm.userInput}
-          passLabel={props.loginForm.passLabel}
-          passInput={props.loginForm.passInput}
-          button={props.loginForm.button}
+          user={form.user}
+          password={form.password}
+          button={form.button}
         />
       </div>
       <div>
-        <a>Cambiar contraseña</a> - <a>Recuperar contraseña</a>
+        <PasswordRecoveryAndResetMolecule
+          recovery={password.recovery}
+          reset={password.reset}
+        />
       </div>
     </div>
   );
 };
 
-export default Security;
+export default SecurityOrganism;

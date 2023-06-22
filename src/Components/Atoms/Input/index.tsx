@@ -1,19 +1,41 @@
-export type InputProps = {
-  type: "text" | "password" | "email" | "number";
+import { ChangeEvent, HTMLInputTypeAttribute } from "react";
+
+export type InputAtomProps = {
+  id?: string;
+  name?: string;
+  type: HTMLInputTypeAttribute;
   value?: string | number;
+  readonly?: boolean;
   disabled?: boolean;
   className?: string;
+  placeholder?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Input = ({ type, value, disabled, className }: InputProps) => {
+const InputAtom = ({
+  id,
+  type,
+  name,
+  value,
+  disabled,
+  readonly,
+  onChange,
+  className,
+  placeholder,
+}: InputAtomProps) => {
   return (
     <input
       type={type}
-      disabled={disabled ?? false}
+      id={id ?? ""}
+      name={name ?? ""}
+      onChange={onChange}
+      defaultValue={value ?? ""}
       className={className ?? ""}
-      value={value ?? ""}
+      disabled={disabled ?? false}
+      readOnly={readonly ?? false}
+      placeholder={placeholder ?? ""}
     />
   );
 };
 
-export default Input;
+export default InputAtom;

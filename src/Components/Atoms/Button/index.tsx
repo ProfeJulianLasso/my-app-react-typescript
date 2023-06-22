@@ -1,15 +1,23 @@
-export type ButtonProps = {
-  type: "button" | "submit" | "reset";
+import { ButtonHTMLAttributes } from "react";
+
+export type ButtonAtomProps = {
+  type: ButtonHTMLAttributes<HTMLButtonElement>["type"];
   text: string;
-  onClick: () => void;
+  readonly onClick: () => void;
   disabled?: boolean;
   className?: string;
 };
 
-const Button = ({ type, text, onClick, disabled, className }: ButtonProps) => {
+const ButtonAtom = ({
+  type,
+  text,
+  onClick,
+  disabled,
+  className,
+}: ButtonAtomProps) => {
   return (
     <button
-      type={type}
+      type={type ?? "button"}
       onClick={onClick}
       disabled={disabled ?? false}
       className={className ?? ""}
@@ -19,4 +27,4 @@ const Button = ({ type, text, onClick, disabled, className }: ButtonProps) => {
   );
 };
 
-export default Button;
+export default ButtonAtom;

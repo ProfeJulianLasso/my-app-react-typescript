@@ -1,44 +1,56 @@
-import Button, { ButtonProps } from "../../Atoms/Button";
-import Input, { InputProps } from "../../Atoms/Input";
-import Label, { LabelProps } from "../../Atoms/Label";
+import Button, { ButtonAtomProps } from "../../Atoms/Button";
+import Input, { InputAtomProps } from "../../Atoms/Input";
+import Label, { LabelAtomProps } from "../../Atoms/Label";
 
-export type LoginFormProps = {
-  userLabel: LabelProps;
-  userInput: InputProps;
-  passLabel: LabelProps;
-  passInput: InputProps;
-  button: ButtonProps;
+export type LoginFormMoleculeProps = {
+  user: {
+    label: LabelAtomProps;
+    input: InputAtomProps;
+  };
+  password: {
+    label: LabelAtomProps;
+    input: InputAtomProps;
+  };
+  button: ButtonAtomProps;
 };
 
-const LoginForm = (props: LoginFormProps) => {
+const LoginFormMolecule = ({
+  user,
+  password,
+  button,
+}: LoginFormMoleculeProps) => {
   return (
-    <div>
+    <form>
       <h1>Login</h1>
       <div>
-        <Label text={props.userLabel.text} />
+        <Label text={user.label.text} htmlFor={user.label.htmlFor} />
         <Input
-          type={props.userInput.type}
-          value={props.userInput.value}
-          disabled={props.userInput.disabled}
-          className={props.userInput.className}
+          id={user.input.id}
+          type={user.input.type}
+          name={user.input.name}
+          value={user.input.value}
+          disabled={user.input.disabled}
+          className={user.input.className}
         />
-        <Label text={props.passLabel.text} />
+        <Label text={password.label.text} htmlFor={password.label.htmlFor} />
         <Input
-          type={props.passInput.type}
-          value={props.passInput.value}
-          disabled={props.passInput.disabled}
-          className={props.passInput.className}
+          id={password.input.id}
+          type={password.input.type}
+          name={password.input.name}
+          value={password.input.value}
+          disabled={password.input.disabled}
+          className={password.input.className}
         />
         <Button
-          type={props.button.type}
-          text={props.button.text}
-          onClick={props.button.onClick}
-          className={props.button.className}
-          disabled={props.button.disabled}
+          type={button.type}
+          text={button.text}
+          onClick={button.onClick}
+          className={button.className}
+          disabled={button.disabled}
         />
       </div>
-    </div>
+    </form>
   );
 };
 
-export default LoginForm;
+export default LoginFormMolecule;

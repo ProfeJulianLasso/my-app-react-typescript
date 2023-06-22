@@ -1,14 +1,14 @@
-import Button, { ButtonProps } from "../../Atoms/Button";
-import Input, { InputProps } from "../../Atoms/Input";
-import Label, { LabelProps } from "../../Atoms/Label";
+import Button, { ButtonAtomProps } from "../../Atoms/Button";
+import Input, { InputAtomProps } from "../../Atoms/Input";
+import Label, { LabelAtomProps } from "../../Atoms/Label";
 
-type SearchProps = {
-  label: LabelProps;
-  input: InputProps;
-  button: ButtonProps;
+export type SearchPropsMolecule = {
+  label: LabelAtomProps;
+  input: InputAtomProps;
+  button: ButtonAtomProps;
 };
 
-const SearchForm = ({ label, input, button }: SearchProps) => {
+const SearchFormMolecule = ({ label, input, button }: SearchPropsMolecule) => {
   return (
     <div>
       <h1>Search</h1>
@@ -32,4 +32,4 @@ const SearchForm = ({ label, input, button }: SearchProps) => {
   );
 };
 
-export default SearchForm;
+export default SearchFormMolecule;
