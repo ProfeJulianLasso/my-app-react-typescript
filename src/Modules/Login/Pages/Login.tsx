@@ -5,7 +5,7 @@ import useLoginFormButtonHook from "./hooks/LoginForm/Button";
 import useRecoveryAndResetPassword from "./hooks/LoginForm/RecoveryAndResetPassword";
 import useLoginFormUserHook from "./hooks/LoginForm/User";
 
-const LoginPage = () => {
+const LoginPage = (): JSX.Element => {
   const button = useLoginFormButtonHook();
   const userInput = useLoginFormUserHook();
   const passwordInput = useLoginFormUserHook();

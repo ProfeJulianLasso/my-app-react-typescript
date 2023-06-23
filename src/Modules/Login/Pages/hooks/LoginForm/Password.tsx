@@ -1,7 +1,10 @@
 import { InputAtomProps } from "../../../../../Components/Atoms/Input";
 import { LabelAtomProps } from "../../../../../Components/Atoms/Label";
 
-const useLoginFormPasswordHook = () => {
+const useLoginFormPasswordHook = (): {
+  label: LabelAtomProps;
+  input: InputAtomProps;
+} => {
   const label: LabelAtomProps = {
     text: "Password",
     htmlFor: "password",
