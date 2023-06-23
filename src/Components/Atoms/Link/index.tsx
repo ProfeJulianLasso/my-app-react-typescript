@@ -1,4 +1,5 @@
 import { HTMLAttributeAnchorTarget, ReactElement } from "react";
+import { Link } from "react-router-dom";
 
 export type LinkAtomProps = {
   text: string;
@@ -14,9 +15,9 @@ const LinkAtom = ({
   className,
 }: LinkAtomProps): ReactElement => {
   return (
-    <a href={href} target={target ?? "_self"} className={className ?? ""}>
+    <Link to={href} target={target ?? "_self"} className={className ?? ""}>
       {text}
-    </a>
+    </Link>
   );
 };
 

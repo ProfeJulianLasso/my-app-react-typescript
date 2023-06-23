@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import LoginTemplate, {
   LoginTemplateProps,
-} from "../../../../Components/Templates/login";
+} from "../../../../Components/Templates/Login";
 import useLoginFormButtonHook from "./hooks/LoginForm/Button";
 import useLoginFormPasswordHook from "./hooks/LoginForm/Password";
 import useRecoveryAndResetPassword from "./hooks/LoginForm/RecoveryAndResetPassword";
@@ -25,7 +25,13 @@ const LoginPage = (): ReactElement => {
       password: { recovery, reset },
     },
   };
-  return <LoginTemplate login={security.login} />;
+  return (
+    <div className="row">
+      <div className="d-flex justify-content-center">
+        <LoginTemplate login={security.login} />
+      </div>
+    </div>
+  );
 };
 
 export default LoginPage;
