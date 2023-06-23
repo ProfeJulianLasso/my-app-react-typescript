@@ -1,13 +1,16 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { InputAtomProps } from "../../../../../../Components/Atoms/Input";
 import { LabelAtomProps } from "../../../../../../Components/Atoms/Label";
+import { LoginFormInputMoleculeProps } from "../../../../../../Components/Molecules/LoginForm";
 
-const useLoginFormUserHook = (
-  setUser: Dispatch<SetStateAction<string>>
-): {
-  label: LabelAtomProps;
-  input: InputAtomProps;
-} => {
+type UseLoginFormUserHook = {
+  userInput: LoginFormInputMoleculeProps;
+  user: string;
+  setUser: Dispatch<SetStateAction<string>>;
+};
+
+const useLoginFormUserHook = (): UseLoginFormUserHook => {
+  const [user, setUser] = useState("");
   const label: LabelAtomProps = {
     text: "User",
     htmlFor: "user",
@@ -22,7 +25,7 @@ const useLoginFormUserHook = (
       setUser(event.target.value);
     },
   };
-  return { label, input };
+  return { userInput: { label, input }, user, setUser };
 };
 
 export default useLoginFormUserHook;

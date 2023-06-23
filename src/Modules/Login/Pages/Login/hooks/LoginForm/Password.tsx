@@ -1,11 +1,16 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { InputAtomProps } from "../../../../../../Components/Atoms/Input";
 import { LabelAtomProps } from "../../../../../../Components/Atoms/Label";
 import { LoginFormInputMoleculeProps } from "../../../../../../Components/Molecules/LoginForm";
 
-const useLoginFormPasswordHook = (
-  setPassword: Dispatch<SetStateAction<string>>
-): LoginFormInputMoleculeProps => {
+type UseLoginFormPasswordHook = {
+  passwordInput: LoginFormInputMoleculeProps;
+  password: string;
+  setPassword: Dispatch<SetStateAction<string>>;
+};
+
+const useLoginFormPasswordHook = (): UseLoginFormPasswordHook => {
+  const [password, setPassword] = useState("");
   const label: LabelAtomProps = {
     text: "Password",
     htmlFor: "password",
@@ -20,7 +25,7 @@ const useLoginFormPasswordHook = (
       setPassword(event.target.value);
     },
   };
-  return { label, input };
+  return { passwordInput: { label, input }, password, setPassword };
 };
 
 export default useLoginFormPasswordHook;

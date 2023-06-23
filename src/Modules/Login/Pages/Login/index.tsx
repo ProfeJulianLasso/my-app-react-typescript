@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
 import LoginTemplate, {
   LoginTemplateProps,
 } from "../../../../Components/Templates/login";
@@ -9,16 +9,14 @@ import useLoginFormUserHook from "./hooks/LoginForm/User";
 
 const LoginPage = (): ReactElement => {
   const idForm = "frmLogin";
-  const [user, setUser] = useState("");
-  const [password, setPassword] = useState("");
 
+  const { userInput, user, setUser } = useLoginFormUserHook();
+  const { passwordInput, password, setPassword } = useLoginFormPasswordHook();
   const button = useLoginFormButtonHook(
     [user, setUser],
     [password, setPassword],
     idForm
   );
-  const userInput = useLoginFormUserHook(setUser);
-  const passwordInput = useLoginFormPasswordHook(setPassword);
   const { recovery, reset } = useRecoveryAndResetPassword();
 
   const security: LoginTemplateProps = {
