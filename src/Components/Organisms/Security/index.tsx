@@ -3,6 +3,7 @@ import LoginForm, { LoginFormMoleculeProps } from "../../Molecules/LoginForm";
 import PasswordRecoveryAndResetMolecule, {
   PasswordRecoveryAndResetMoleculeProps,
 } from "../../Molecules/PasswordRecoveryAndReset";
+import "./styles.css";
 
 export type SecurityOrganismProps = {
   form: LoginFormMoleculeProps;
@@ -14,13 +15,13 @@ const SecurityOrganism = ({
   password,
 }: SecurityOrganismProps): ReactElement => {
   return (
-    <div>
-      <h1>Security</h1>
-      <div>
+    <>
+      <div className="login-form">
         <LoginForm
           user={form.user}
           password={form.password}
           button={form.button}
+          idForm={form.idForm}
         />
       </div>
       <div>
@@ -29,7 +30,7 @@ const SecurityOrganism = ({
           reset={password.reset}
         />
       </div>
-    </div>
+    </>
   );
 };
 

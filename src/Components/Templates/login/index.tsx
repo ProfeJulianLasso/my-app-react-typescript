@@ -2,13 +2,18 @@ import { ReactElement } from "react";
 import SecurityOrganism, {
   SecurityOrganismProps,
 } from "../../Organisms/Security";
+import "./styles.css";
 
 export type LoginTemplateProps = {
   login: SecurityOrganismProps;
 };
 
 const LoginTemplate = ({ login }: LoginTemplateProps): ReactElement => {
-  return <SecurityOrganism form={login.form} password={login.password} />;
+  return (
+    <div className="login-form-container">
+      <SecurityOrganism form={login.form} password={login.password} />
+    </div>
+  );
 };
 
 export default LoginTemplate;

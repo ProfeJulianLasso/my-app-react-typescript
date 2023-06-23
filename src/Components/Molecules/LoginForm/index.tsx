@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import Button, { ButtonAtomProps } from "../../Atoms/Button";
 import Input, { InputAtomProps } from "../../Atoms/Input";
 import Label, { LabelAtomProps } from "../../Atoms/Label";
+import "./styles.css";
 
 export type LoginFormInputMoleculeProps = {
   label: LabelAtomProps;
@@ -12,44 +13,70 @@ export type LoginFormMoleculeProps = {
   user: LoginFormInputMoleculeProps;
   password: LoginFormInputMoleculeProps;
   button: ButtonAtomProps;
+  idForm: string;
 };
 
 const LoginFormMolecule = ({
   user,
   password,
   button,
+  idForm,
 }: LoginFormMoleculeProps): ReactElement => {
   return (
-    <form>
-      <h1>Login</h1>
-      <div>
-        <Label text={user.label.text} htmlFor={user.label.htmlFor} />
-        <Input
-          id={user.input.id}
-          type={user.input.type}
-          name={user.input.name}
-          value={user.input.value}
-          disabled={user.input.disabled}
-          className={user.input.className}
-        />
-        <Label text={password.label.text} htmlFor={password.label.htmlFor} />
-        <Input
-          id={password.input.id}
-          type={password.input.type}
-          name={password.input.name}
-          value={password.input.value}
-          disabled={password.input.disabled}
-          className={password.input.className}
-        />
-        <Button
-          type={button.type}
-          text={button.text}
-          onClick={button.onClick}
-          className={button.className}
-          disabled={button.disabled}
-        />
-      </div>
-    </form>
+    <>
+      <h2 className="title-form">Sign in to MyApp</h2>
+      <form className="form d-grid gap-2" id={idForm}>
+        <div className="mb-3 row">
+          <Label
+            text={user.label.text}
+            htmlFor={user.label.htmlFor}
+            className={user.label.className ?? ""}
+          />
+          <div className="col-sm-10">
+            <Input
+              id={user.input.id}
+              type={user.input.type}
+              name={user.input.name}
+              value={user.input.value}
+              disabled={user.input.disabled}
+              onChange={user.input.onChange}
+              className={user.input.className}
+              readonly={user.input.readonly ?? false}
+              placeholder={user.input.placeholder ?? ""}
+            />
+          </div>
+        </div>
+        <div className="mb-3 row">
+          <Label
+            text={password.label.text}
+            htmlFor={password.label.htmlFor}
+            className={password.label.className ?? ""}
+          />
+          <div className="col-sm-10">
+            <Input
+              id={password.input.id}
+              type={password.input.type}
+              name={password.input.name}
+              value={password.input.value}
+              disabled={password.input.disabled}
+              onChange={password.input.onChange}
+              className={password.input.className}
+              readonly={password.input.readonly ?? false}
+              placeholder={password.input.placeholder ?? ""}
+            />
+          </div>
+        </div>
+        <div className="d-grid">
+          <Button
+            type={button.type}
+            text={button.text}
+            onClick={button.onClick}
+            className={button.className}
+            disabled={button.disabled}
+          />
+        </div>
+      </form>
+    </>
   );
 };
 

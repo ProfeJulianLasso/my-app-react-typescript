@@ -12,7 +12,7 @@ const PasswordRecoveryAndResetMolecule = ({
 }: PasswordRecoveryAndResetMoleculeProps): ReactElement => {
   return (
     <>
-      <LinkAtom text={recovery.text} href={recovery.href} /> -
+      <LinkAtom text={recovery.text} href={recovery.href} /> -{" "}
       <LinkAtom text={reset.text} href={reset.href} />
     </>
   );
