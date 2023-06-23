@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import { InputAtomProps } from "../../../../../../Components/Atoms/Input";
 import { LabelAtomProps } from "../../../../../../Components/Atoms/Label";
 import { LoginFormInputMoleculeProps } from "../../../../../../Components/Molecules/LoginForm";
@@ -10,22 +10,28 @@ type UseLoginFormPasswordHook = {
 };
 
 const useLoginFormPasswordHook = (): UseLoginFormPasswordHook => {
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState<string>("");
+  const id = "password";
+
   const label: LabelAtomProps = {
     text: "Password",
-    htmlFor: "password",
+    htmlFor: id,
     className: "col-sm-2 col-form-label",
   };
   const input: InputAtomProps = {
     type: "password",
-    name: "password",
-    id: "password",
+    name: id,
+    id,
     className: "form-control",
-    onChange(event) {
+    onChange(event: ChangeEvent<HTMLInputElement>): void {
       setPassword(event.target.value);
     },
   };
-  return { passwordInput: { label, input }, password, setPassword };
+  return {
+    passwordInput: { label, input },
+    password,
+    setPassword,
+  };
 };
 
 export default useLoginFormPasswordHook;

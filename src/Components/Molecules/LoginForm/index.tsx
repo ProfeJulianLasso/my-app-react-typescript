@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
-import Button, { ButtonAtomProps } from "../../Atoms/Button";
-import Input, { InputAtomProps } from "../../Atoms/Input";
-import Label, { LabelAtomProps } from "../../Atoms/Label";
+import ButtonAtom, { ButtonAtomProps } from "../../Atoms/Button";
+import InputAtom, { InputAtomProps } from "../../Atoms/Input";
+import LabelAtom, { LabelAtomProps } from "../../Atoms/Label";
 import "./styles.css";
 
 export type LoginFormInputMoleculeProps = {
@@ -27,13 +27,13 @@ const LoginFormMolecule = ({
       <h2 className="title-form">Sign in to MyApp</h2>
       <form className="form d-grid gap-2" id={idForm}>
         <div className="mb-3 row">
-          <Label
+          <LabelAtom
             text={user.label.text}
             htmlFor={user.label.htmlFor}
             className={user.label.className ?? ""}
           />
           <div className="col-sm-10">
-            <Input
+            <InputAtom
               id={user.input.id}
               type={user.input.type}
               name={user.input.name}
@@ -47,13 +47,13 @@ const LoginFormMolecule = ({
           </div>
         </div>
         <div className="mb-3 row">
-          <Label
+          <LabelAtom
             text={password.label.text}
             htmlFor={password.label.htmlFor}
             className={password.label.className ?? ""}
           />
           <div className="col-sm-10">
-            <Input
+            <InputAtom
               id={password.input.id}
               type={password.input.type}
               name={password.input.name}
@@ -67,7 +67,7 @@ const LoginFormMolecule = ({
           </div>
         </div>
         <div className="d-grid">
-          <Button
+          <ButtonAtom
             type={button.type}
             text={button.text}
             onClick={button.onClick}

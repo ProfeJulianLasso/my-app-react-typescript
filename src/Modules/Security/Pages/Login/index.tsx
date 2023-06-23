@@ -4,7 +4,7 @@ import LoginTemplate, {
 } from "../../../../Components/Templates/Login";
 import useLoginFormButtonHook from "./hooks/LoginForm/Button";
 import useLoginFormPasswordHook from "./hooks/LoginForm/Password";
-import useRecoveryAndResetPassword from "./hooks/LoginForm/RecoveryAndResetPassword";
+import useRecoveryAndResetPasswordHook from "./hooks/LoginForm/RecoveryAndResetPassword";
 import useLoginFormUserHook from "./hooks/LoginForm/User";
 
 const LoginPage = (): ReactElement => {
@@ -17,7 +17,7 @@ const LoginPage = (): ReactElement => {
     [password, setPassword],
     idForm
   );
-  const { recovery, reset } = useRecoveryAndResetPassword();
+  const { recovery, reset } = useRecoveryAndResetPasswordHook();
 
   const security: LoginTemplateProps = {
     login: {
@@ -25,6 +25,7 @@ const LoginPage = (): ReactElement => {
       password: { recovery, reset },
     },
   };
+
   return (
     <div className="row">
       <div className="d-flex justify-content-center">

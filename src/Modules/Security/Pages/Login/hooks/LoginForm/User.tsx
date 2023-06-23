@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import { InputAtomProps } from "../../../../../../Components/Atoms/Input";
 import { LabelAtomProps } from "../../../../../../Components/Atoms/Label";
 import { LoginFormInputMoleculeProps } from "../../../../../../Components/Molecules/LoginForm";
@@ -10,22 +10,28 @@ type UseLoginFormUserHook = {
 };
 
 const useLoginFormUserHook = (): UseLoginFormUserHook => {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState<string>("");
+  const id = "user";
+
   const label: LabelAtomProps = {
     text: "User",
-    htmlFor: "user",
+    htmlFor: id,
     className: "col-sm-2 col-form-label",
   };
   const input: InputAtomProps = {
     type: "text",
-    name: "user",
-    id: "user",
+    name: id,
+    id,
     className: "form-control",
-    onChange(event) {
+    onChange(event: ChangeEvent<HTMLInputElement>): void {
       setUser(event.target.value);
     },
   };
-  return { userInput: { label, input }, user, setUser };
+  return {
+    userInput: { label, input },
+    user,
+    setUser,
+  };
 };
 
 export default useLoginFormUserHook;

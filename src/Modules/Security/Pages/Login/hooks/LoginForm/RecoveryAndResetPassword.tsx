@@ -1,6 +1,6 @@
 import { PasswordRecoveryAndResetMoleculeProps } from "../../../../../../Components/Molecules/PasswordRecoveryAndReset";
 
-const useRecoveryAndResetPassword =
+const useRecoveryAndResetPasswordHook =
   (): PasswordRecoveryAndResetMoleculeProps => {
     return {
       recovery: {
@@ -14,4 +14,4 @@ const useRecoveryAndResetPassword =
     } as PasswordRecoveryAndResetMoleculeProps;
   };
 
-export default useRecoveryAndResetPassword;
+export default useRecoveryAndResetPasswordHook;

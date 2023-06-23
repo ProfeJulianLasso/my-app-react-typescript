@@ -1,9 +1,9 @@
-import { ButtonHTMLAttributes, ReactElement } from "react";
+import { ButtonHTMLAttributes, MouseEventHandler, ReactElement } from "react";
 
 export type ButtonAtomProps = {
   type: ButtonHTMLAttributes<HTMLButtonElement>["type"];
   text: string;
-  readonly onClick: () => void;
+  onClick: MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
   className?: string;
 };
