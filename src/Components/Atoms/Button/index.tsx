@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, ReactElement } from "react";
 
 export type ButtonAtomProps = {
   type: ButtonHTMLAttributes<HTMLButtonElement>["type"];
@@ -14,7 +14,7 @@ const ButtonAtom = ({
   onClick,
   disabled,
   className,
-}: ButtonAtomProps) => {
+}: ButtonAtomProps): ReactElement => {
   return (
     <button
       type={type ?? "button"}

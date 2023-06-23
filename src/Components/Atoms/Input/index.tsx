@@ -1,4 +1,4 @@
-import { ChangeEvent, HTMLInputTypeAttribute } from "react";
+import { ChangeEvent, HTMLInputTypeAttribute, ReactElement } from "react";
 
 export type InputAtomProps = {
   id?: string;
@@ -22,7 +22,7 @@ const InputAtom = ({
   onChange,
   className,
   placeholder,
-}: InputAtomProps) => {
+}: InputAtomProps): ReactElement => {
   return (
     <input
       type={type}

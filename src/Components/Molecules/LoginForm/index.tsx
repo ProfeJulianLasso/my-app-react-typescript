@@ -1,16 +1,16 @@
+import { ReactElement } from "react";
 import Button, { ButtonAtomProps } from "../../Atoms/Button";
 import Input, { InputAtomProps } from "../../Atoms/Input";
 import Label, { LabelAtomProps } from "../../Atoms/Label";
 
+export type LoginFormInputMoleculeProps = {
+  label: LabelAtomProps;
+  input: InputAtomProps;
+};
+
 export type LoginFormMoleculeProps = {
-  user: {
-    label: LabelAtomProps;
-    input: InputAtomProps;
-  };
-  password: {
-    label: LabelAtomProps;
-    input: InputAtomProps;
-  };
+  user: LoginFormInputMoleculeProps;
+  password: LoginFormInputMoleculeProps;
   button: ButtonAtomProps;
 };
 
@@ -18,7 +18,7 @@ const LoginFormMolecule = ({
   user,
   password,
   button,
-}: LoginFormMoleculeProps) => {
+}: LoginFormMoleculeProps): ReactElement => {
   return (
     <form>
       <h1>Login</h1>

@@ -1,4 +1,4 @@
-import { HTMLAttributeAnchorTarget } from "react";
+import { HTMLAttributeAnchorTarget, ReactElement } from "react";
 
 export type LinkAtomProps = {
   text: string;
@@ -7,7 +7,12 @@ export type LinkAtomProps = {
   className?: string;
 };
 
-const LinkAtom = ({ text, href, target, className }: LinkAtomProps) => {
+const LinkAtom = ({
+  text,
+  href,
+  target,
+  className,
+}: LinkAtomProps): ReactElement => {
   return (
     <a href={href} target={target ?? "_self"} className={className ?? ""}>
       {text}

@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import LinkAtom, { LinkAtomProps } from "../../Atoms/Link";
 
 export type PasswordRecoveryAndResetMoleculeProps = {
@@ -8,7 +9,7 @@ export type PasswordRecoveryAndResetMoleculeProps = {
 const PasswordRecoveryAndResetMolecule = ({
   recovery,
   reset,
-}: PasswordRecoveryAndResetMoleculeProps) => {
+}: PasswordRecoveryAndResetMoleculeProps): ReactElement => {
   return (
     <>
       <LinkAtom text={recovery.text} href={recovery.href} /> -

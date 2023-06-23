@@ -1,14 +1,16 @@
+import { ReactElement } from "react";
 import LoginTemplate, {
   LoginTemplateProps,
 } from "../../../Components/Templates/login";
 import useLoginFormButtonHook from "./hooks/LoginForm/Button";
+import useLoginFormPasswordHook from "./hooks/LoginForm/Password";
 import useRecoveryAndResetPassword from "./hooks/LoginForm/RecoveryAndResetPassword";
 import useLoginFormUserHook from "./hooks/LoginForm/User";
 
-const LoginPage = (): JSX.Element => {
+const LoginPage = (): ReactElement => {
   const button = useLoginFormButtonHook();
   const userInput = useLoginFormUserHook();
-  const passwordInput = useLoginFormUserHook();
+  const passwordInput = useLoginFormPasswordHook();
   const { recovery, reset } = useRecoveryAndResetPassword();
 
   const security: LoginTemplateProps = {

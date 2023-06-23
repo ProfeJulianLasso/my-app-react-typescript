@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import Button, { ButtonAtomProps } from "../../Atoms/Button";
 import Input, { InputAtomProps } from "../../Atoms/Input";
 import Label, { LabelAtomProps } from "../../Atoms/Label";
@@ -8,7 +9,11 @@ export type SearchPropsMolecule = {
   button: ButtonAtomProps;
 };
 
-const SearchFormMolecule = ({ label, input, button }: SearchPropsMolecule) => {
+const SearchFormMolecule = ({
+  label,
+  input,
+  button,
+}: SearchPropsMolecule): ReactElement => {
   return (
     <div>
       <h1>Search</h1>

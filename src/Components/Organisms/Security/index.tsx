@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import LoginForm, { LoginFormMoleculeProps } from "../../Molecules/LoginForm";
 import PasswordRecoveryAndResetMolecule, {
   PasswordRecoveryAndResetMoleculeProps,
@@ -8,7 +9,10 @@ export type SecurityOrganismProps = {
   password: PasswordRecoveryAndResetMoleculeProps;
 };
 
-const SecurityOrganism = ({ form, password }: SecurityOrganismProps) => {
+const SecurityOrganism = ({
+  form,
+  password,
+}: SecurityOrganismProps): ReactElement => {
   return (
     <div>
       <h1>Security</h1>
