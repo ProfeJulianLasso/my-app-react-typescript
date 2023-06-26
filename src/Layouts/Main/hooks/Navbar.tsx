@@ -21,6 +21,10 @@ const useNavbarHook = (): NavbarTemplateProps => {
             text: "Reset",
             href: "/reset",
           },
+          {
+            text: "Logout",
+            href: "/logout",
+          },
         ],
       },
     },

@@ -11,7 +11,7 @@ function ProtectedGuard({
   children,
 }: ProtectedGuardProps): ReactElement {
   if (!isSignedIn) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/login" replace />;
   }
   return children;
 }
