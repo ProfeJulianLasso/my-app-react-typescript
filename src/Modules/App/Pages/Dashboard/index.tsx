@@ -3,7 +3,6 @@ import useToken from "../../../Security/Hooks/Token";
 
 const DashboardPage = () => {
   const token = useToken();
-  console.log(token);
 
   return (
     <div>
@@ -14,7 +13,14 @@ const DashboardPage = () => {
         className="btn btn-primary"
         text="Consultar el backend"
         onClick={() => {
-          window.location.href = "/logout";
+          fetch("http://localhost:3000/protected", {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => console.log(data));
         }}
       />
     </div>

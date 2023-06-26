@@ -19,6 +19,7 @@ root.render(
         clientId="LpC3fUDoKXT9IEzWw4Jon9m7upPPZNL4"
         authorizationParams={{
           redirect_uri: window.location.origin + "/dashboard",
+          audience: "http://localhost:3000",
         }}
       >
         <App />
