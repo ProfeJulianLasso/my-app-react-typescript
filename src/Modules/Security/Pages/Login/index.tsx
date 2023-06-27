@@ -3,10 +3,10 @@ import { ReactElement } from "react";
 import LoginTemplate, {
   LoginTemplateProps,
 } from "../../../../Components/Templates/Login";
-import useLoginFormButtonHook from "./hooks/LoginForm/Button";
-import useLoginFormPasswordHook from "./hooks/LoginForm/Password";
-import useRecoveryAndResetPasswordHook from "./hooks/LoginForm/RecoveryAndResetPassword";
-import useLoginFormUserHook from "./hooks/LoginForm/User";
+import useLoginFormButtonHook from "./Hooks/LoginForm/Button";
+import useLoginFormPasswordHook from "./Hooks/LoginForm/Password";
+import useRecoveryAndResetPasswordHook from "./Hooks/LoginForm/RecoveryAndResetPassword";
+import useLoginFormUserHook from "./Hooks/LoginForm/User";
 
 const LoginPage = (): ReactElement | null => {
   const { isAuthenticated, isLoading } = useAuth0();
