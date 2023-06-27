@@ -1,8 +1,17 @@
 import ButtonAtom from "../../../../Components/Atoms/Button";
 import useToken from "../../../Security/Hooks/Token";
+import useGraphQLQueryButton from "./Hooks/GraphQLQueryButton";
+import useQueryButtonForProtectedRoute from "./Hooks/QueryButtonForProtectedRoute";
 
 const DashboardPage = () => {
-  const token = useToken();
+  const initToken = useToken();
+  const { queryButtonAtomsProps, token } = useQueryButtonForProtectedRoute(
+    initToken ?? ""
+  );
+
+  const { graphQLQueryButtonAtomsProps } = useGraphQLQueryButton(
+    initToken ?? ""
+  );
 
   return (
     <div>
@@ -10,18 +19,16 @@ const DashboardPage = () => {
       <p>{token}</p>
       <br />
       <ButtonAtom
-        className="btn btn-primary"
-        text="Consultar el backend"
-        onClick={() => {
-          fetch("http://localhost:3000/protected", {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          })
-            .then((response) => response.json())
-            .then((data) => console.log(data));
-        }}
+        text={queryButtonAtomsProps.text}
+        className={queryButtonAtomsProps.className}
+        onClick={queryButtonAtomsProps.onClick}
+      />
+      <br />
+      <br />
+      <ButtonAtom
+        text={graphQLQueryButtonAtomsProps.text}
+        className={graphQLQueryButtonAtomsProps.className}
+        onClick={graphQLQueryButtonAtomsProps.onClick}
       />
     </div>
   );
