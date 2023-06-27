@@ -1,5 +1,7 @@
 import { ReactElement } from "react";
-import LoginForm, { LoginFormMoleculeProps } from "../../Molecules/LoginForm";
+import LoginFormMolecule, {
+  LoginFormMoleculeProps,
+} from "../../Molecules/LoginForm";
 import PasswordRecoveryAndResetMolecule, {
   PasswordRecoveryAndResetMoleculeProps,
 } from "../../Molecules/PasswordRecoveryAndReset";
@@ -17,7 +19,7 @@ const SecurityOrganism = ({
   return (
     <>
       <div className="login-form">
-        <LoginForm
+        <LoginFormMolecule
           user={form.user}
           password={form.password}
           button={form.button}

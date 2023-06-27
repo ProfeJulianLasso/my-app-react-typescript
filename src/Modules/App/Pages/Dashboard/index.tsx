@@ -1,35 +1,24 @@
 import ButtonAtom from "../../../../Components/Atoms/Button";
-import useToken from "../../../Security/Hooks/Token";
 import useGraphQLQueryButton from "./Hooks/GraphQLQueryButton";
-import useQueryButtonForProtectedRoute from "./Hooks/QueryButtonForProtectedRoute";
 
 const DashboardPage = () => {
-  const initToken = useToken();
-  const { queryButtonAtomsProps, token } = useQueryButtonForProtectedRoute(
-    initToken ?? ""
-  );
-
-  const { graphQLQueryButtonAtomsProps } = useGraphQLQueryButton(
-    initToken ?? ""
-  );
+  const { graphQLQueryButtonAtomsProps, resultGraphQLQueryButton } =
+    useGraphQLQueryButton();
 
   return (
     <div>
       <h1>Dashboard</h1>
-      <p>{token}</p>
-      <br />
-      <ButtonAtom
-        text={queryButtonAtomsProps.text}
-        className={queryButtonAtomsProps.className}
-        onClick={queryButtonAtomsProps.onClick}
-      />
       <br />
       <br />
+      <h1>GraphQL Query</h1>
       <ButtonAtom
         text={graphQLQueryButtonAtomsProps.text}
         className={graphQLQueryButtonAtomsProps.className}
         onClick={graphQLQueryButtonAtomsProps.onClick}
       />
+      <br />
+      <br />
+      {resultGraphQLQueryButton}
     </div>
   );
 };

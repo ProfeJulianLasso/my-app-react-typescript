@@ -8,6 +8,8 @@ import LogoutPage from "../../../Security/Pages/Logout";
 import RecoveryPage from "../../../Security/Pages/Recovery";
 import ResetPage from "../../../Security/Pages/Reset";
 import DashboardPage from "../Dashboard";
+import GraphQLMutationPage from "../GraphQLMutation";
+import GraphQLQueryLazyPage from "../GraphQLQueryLazy";
 import NotFound404Page from "../NotFound404";
 
 function App(): ReactElement {
@@ -23,6 +25,8 @@ function App(): ReactElement {
           <Route path="dashboard" element={<DashboardPage />} />
           <Route path="recovery" element={<RecoveryPage />} />
           <Route path="reset" element={<ResetPage />} />
+          <Route path="graphql-query-lazy" element={<GraphQLQueryLazyPage />} />
+          <Route path="graphql-mutation" element={<GraphQLMutationPage />} />
         </Route>
         <Route path="*" element={<NotFound404Page />} />
       </Routes>

@@ -22,6 +22,14 @@ const useNavbarHook = (): NavbarTemplateProps => {
             href: "/reset",
           },
           {
+            text: "GraphQL - Query Lazy Load",
+            href: "/graphql-query-lazy",
+          },
+          {
+            text: "GraphQL - Mutation",
+            href: "/graphql-mutation",
+          },
+          {
             text: "Logout",
             href: "/logout",
           },

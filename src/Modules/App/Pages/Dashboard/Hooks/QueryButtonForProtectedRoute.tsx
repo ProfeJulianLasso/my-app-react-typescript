@@ -1,23 +1,18 @@
-import { Dispatch, SetStateAction, useState } from "react";
 import { ButtonAtomProps } from "../../../../../Components/Atoms/Button";
 
 type UseQueryButtonForProtectedRoute = {
   queryButtonAtomsProps: ButtonAtomProps;
-  token: string;
-  setToken: Dispatch<SetStateAction<string>>;
 };
 
 const useQueryButtonForProtectedRoute = (
-  initToken: string
+  token: string
 ): UseQueryButtonForProtectedRoute => {
-  const [token, setToken] = useState<string>(initToken);
-
   return {
     queryButtonAtomsProps: {
       className: "btn btn-primary",
       text: "Consultar el backend",
       onClick: () => {
-        fetch("http://localhost:3000/protected", {
+        fetch("http://localhost:3001/protected", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -28,8 +23,6 @@ const useQueryButtonForProtectedRoute = (
           .catch((error) => console.error(error));
       },
     } as ButtonAtomProps,
-    token,
-    setToken,
   };
 };
 
