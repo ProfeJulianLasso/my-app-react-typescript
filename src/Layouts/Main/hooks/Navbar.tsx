@@ -10,16 +10,8 @@ const useNavbarHook = (): NavbarTemplateProps => {
         active: pathname,
         links: [
           {
-            text: "Login",
-            href: "/login",
-          },
-          {
-            text: "Recovery",
-            href: "/recovery",
-          },
-          {
-            text: "Reset",
-            href: "/reset",
+            text: "Dashboard",
+            href: "/dashboard",
           },
           {
             text: "GraphQL - Query Lazy Load",

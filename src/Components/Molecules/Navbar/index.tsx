@@ -29,7 +29,7 @@ const NavbarMolecule = ({
           href="/"
           className="navbar-brand"
         />
-        <div className="collapse navbar-collapse">
+        <div role="menu" className="collapse navbar-collapse">
           <div className="navbar-nav">{items}</div>
         </div>
       </div>

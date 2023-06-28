@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import ButtonAtom, { ButtonAtomProps } from "../../Atoms/Button";
+import FormAtom from "../../Atoms/Form";
 import InputAtom, { InputAtomProps } from "../../Atoms/Input";
 import LabelAtom, { LabelAtomProps } from "../../Atoms/Label";
 import "./styles.css";
@@ -25,7 +26,7 @@ const LoginFormMolecule = ({
   return (
     <>
       <h2 className="title-form">Sign in to MyApp</h2>
-      <form className="form d-grid gap-2" id={idForm}>
+      <FormAtom className="form d-grid gap-2" id={idForm}>
         <div className="mb-3 row">
           <LabelAtom
             text={user.label.text}
@@ -41,8 +42,8 @@ const LoginFormMolecule = ({
               disabled={user.input.disabled}
               onChange={user.input.onChange}
               className={user.input.className}
+              placeholder={user.input.placeholder}
               readonly={user.input.readonly ?? false}
-              placeholder={user.input.placeholder ?? ""}
             />
           </div>
         </div>
@@ -50,7 +51,7 @@ const LoginFormMolecule = ({
           <LabelAtom
             text={password.label.text}
             htmlFor={password.label.htmlFor}
-            className={password.label.className ?? ""}
+            className={password.label.className}
           />
           <div className="col-sm-10">
             <InputAtom
@@ -61,8 +62,8 @@ const LoginFormMolecule = ({
               disabled={password.input.disabled}
               onChange={password.input.onChange}
               className={password.input.className}
+              placeholder={password.input.placeholder}
               readonly={password.input.readonly ?? false}
-              placeholder={password.input.placeholder ?? ""}
             />
           </div>
         </div>
@@ -71,11 +72,11 @@ const LoginFormMolecule = ({
             type={button.type}
             text={button.text}
             onClick={button.onClick}
-            className={button.className}
             disabled={button.disabled}
+            className={button.className}
           />
         </div>
-      </form>
+      </FormAtom>
     </>
   );
 };

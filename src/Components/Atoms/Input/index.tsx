@@ -25,15 +25,15 @@ const InputAtom = ({
 }: InputAtomProps): ReactElement => {
   return (
     <input
+      id={id}
       type={type}
-      id={id ?? ""}
-      name={name ?? ""}
+      name={name}
       onChange={onChange}
-      defaultValue={value ?? ""}
-      className={className ?? ""}
-      disabled={disabled ?? false}
+      defaultValue={value}
+      className={className}
+      placeholder={placeholder}
       readOnly={readonly ?? false}
-      placeholder={placeholder ?? ""}
+      disabled={disabled ?? false}
     />
   );
 };

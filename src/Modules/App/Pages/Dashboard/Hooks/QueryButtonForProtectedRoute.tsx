@@ -1,16 +1,17 @@
 import { ButtonAtomProps } from "../../../../../Components/Atoms/Button";
+import useToken from "../../../../Security/Hooks/Token";
 
 type UseQueryButtonForProtectedRoute = {
   queryButtonAtomsProps: ButtonAtomProps;
 };
 
-const useQueryButtonForProtectedRoute = (
-  token: string
-): UseQueryButtonForProtectedRoute => {
+const useQueryButtonForProtectedRoute = (): UseQueryButtonForProtectedRoute => {
+  const token = useToken();
+
   return {
     queryButtonAtomsProps: {
       className: "btn btn-primary",
-      text: "Consultar el backend",
+      text: "Consultar el backend protegido",
       onClick: () => {
         fetch("http://localhost:3001/protected", {
           method: "GET",

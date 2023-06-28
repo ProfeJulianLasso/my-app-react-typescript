@@ -19,12 +19,12 @@ function App(): ReactElement {
         <Route element={<CleanLayout />}>
           <Route path="/" element={<LoginPage />} />
           <Route path="login" element={<LoginPage />} />
+          <Route path="reset" element={<ResetPage />} />
           <Route path="logout" element={<LogoutPage />} />
+          <Route path="recovery" element={<RecoveryPage />} />
         </Route>
         <Route element={<ProtectedAuth0Guard component={MainLayout} />}>
           <Route path="dashboard" element={<DashboardPage />} />
-          <Route path="recovery" element={<RecoveryPage />} />
-          <Route path="reset" element={<ResetPage />} />
           <Route path="graphql-query-lazy" element={<GraphQLQueryLazyPage />} />
           <Route path="graphql-mutation" element={<GraphQLMutationPage />} />
         </Route>

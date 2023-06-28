@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import Button, { ButtonAtomProps } from "../../Atoms/Button";
+import FormAtom from "../../Atoms/Form";
 import Input, { InputAtomProps } from "../../Atoms/Input";
 import Label, { LabelAtomProps } from "../../Atoms/Label";
 
@@ -17,7 +18,7 @@ const SearchFormMolecule = ({
   return (
     <div>
       <h1>Search</h1>
-      <div>
+      <FormAtom>
         <Label text={label.text} />
         <Input
           type={input.type}
@@ -32,7 +33,7 @@ const SearchFormMolecule = ({
           className={button.className}
           disabled={button.disabled}
         />
-      </div>
+      </FormAtom>
     </div>
   );
 };

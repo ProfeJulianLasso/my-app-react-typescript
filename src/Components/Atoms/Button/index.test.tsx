@@ -5,23 +5,6 @@ describe("ButtonAtom", () => {
   let buttonProps: ButtonAtomProps;
   let onClickMock: jest.Mock;
 
-  // it("should render correctly", () => {
-  //   // Arrange
-  //   const buttonProps = {
-  //     text: "Test",
-  //     onClick: () => {
-  //       console.log("Testing event onClick");
-  //     },
-  //   };
-
-  //   // Act
-  //   const component = render(<ButtonAtom {...buttonProps} />);
-  //   component.debug(component.container);
-
-  //   // Assert
-  //   expect(component.container).toHaveTextContent("Test");
-  // });
-
   beforeEach(() => {
     onClickMock = jest.fn();
     buttonProps = {
