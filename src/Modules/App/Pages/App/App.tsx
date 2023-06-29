@@ -11,6 +11,7 @@ import DashboardPage from "../Dashboard";
 import GraphQLMutationPage from "../GraphQLMutation";
 import GraphQLQueryLazyPage from "../GraphQLQueryLazy";
 import NotFound404Page from "../NotFound404";
+import ProductsPage from "../Products";
 
 function App(): ReactElement {
   return (
@@ -24,9 +25,10 @@ function App(): ReactElement {
           <Route path="recovery" element={<RecoveryPage />} />
         </Route>
         <Route element={<ProtectedAuth0Guard component={MainLayout} />}>
+          <Route path="products" element={<ProductsPage />} />
           <Route path="dashboard" element={<DashboardPage />} />
-          <Route path="graphql-query-lazy" element={<GraphQLQueryLazyPage />} />
           <Route path="graphql-mutation" element={<GraphQLMutationPage />} />
+          <Route path="graphql-query-lazy" element={<GraphQLQueryLazyPage />} />
         </Route>
         <Route path="*" element={<NotFound404Page />} />
       </Routes>

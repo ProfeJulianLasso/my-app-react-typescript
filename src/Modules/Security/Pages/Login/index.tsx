@@ -12,8 +12,8 @@ const LoginPage = (): ReactElement | null => {
   const { isAuthenticated, isLoading } = useAuth0();
   const idForm = "frmLogin";
 
-  const { userInput, user, setUser } = useLoginFormUserHook();
-  const { passwordInput, password, setPassword } = useLoginFormPasswordHook();
+  const { userInput, setUser } = useLoginFormUserHook();
+  const { passwordInput, setPassword } = useLoginFormPasswordHook();
   const button = useLoginFormButtonHook(setUser, setPassword, idForm);
   const { recovery, reset } = useRecoveryAndResetPasswordHook();
 

@@ -1,12 +1,16 @@
 // Libraries
 import { Auth0Provider } from "@auth0/auth0-react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
 // Styles
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+
+// Store for Redux
+import { store } from "./Redux/Stores/AppStore";
 
 // App
 import App from "./Modules/App/Pages/App/App";
@@ -27,7 +31,9 @@ root.render(
       }}
     >
       <MyApolloProvider>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </MyApolloProvider>
     </Auth0Provider>
   </BrowserRouter>

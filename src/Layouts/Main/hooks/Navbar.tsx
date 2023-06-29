@@ -14,6 +14,10 @@ const useNavbarHook = (): NavbarTemplateProps => {
             href: "/dashboard",
           },
           {
+            text: "Products",
+            href: "/products",
+          },
+          {
             text: "GraphQL - Query Lazy Load",
             href: "/graphql-query-lazy",
           },
