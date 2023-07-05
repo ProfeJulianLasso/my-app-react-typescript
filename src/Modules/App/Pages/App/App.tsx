@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement, Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import ProtectedAuth0Guard from "../../../../Guards/ProtectedAuth0Guard";
 import CleanLayout from "../../../../Layouts/Clean";
@@ -7,11 +7,12 @@ import LoginPage from "../../../Security/Pages/Login";
 import LogoutPage from "../../../Security/Pages/Logout";
 import RecoveryPage from "../../../Security/Pages/Recovery";
 import ResetPage from "../../../Security/Pages/Reset";
-import DashboardPage from "../Dashboard";
 import GraphQLMutationPage from "../GraphQLMutation";
 import GraphQLQueryLazyPage from "../GraphQLQueryLazy";
 import NotFound404Page from "../NotFound404";
-import ProductsPage from "../Products";
+
+const DashboardPageLazy = lazy(() => import("../Dashboard"));
+const ProductsPageLazy = lazy(() => import("../Products"));
 
 function App(): ReactElement {
   return (
@@ -25,8 +26,22 @@ function App(): ReactElement {
           <Route path="recovery" element={<RecoveryPage />} />
         </Route>
         <Route element={<ProtectedAuth0Guard component={MainLayout} />}>
-          <Route path="products" element={<ProductsPage />} />
-          <Route path="dashboard" element={<DashboardPage />} />
+          <Route
+            path="products"
+            element={
+              <Suspense fallback={<>Loading Products Page...</>}>
+                <ProductsPageLazy />
+              </Suspense>
+            }
+          />
+          <Route
+            path="dashboard"
+            element={
+              <Suspense fallback={<>Loading Dashboard Page...</>}>
+                <DashboardPageLazy />
+              </Suspense>
+            }
+          />
           <Route path="graphql-mutation" element={<GraphQLMutationPage />} />
           <Route path="graphql-query-lazy" element={<GraphQLQueryLazyPage />} />
         </Route>
